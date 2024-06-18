@@ -1,15 +1,15 @@
-﻿// /////////////////////////////////////////////////////////////////////////
+﻿///////////////////////////////////////////////////////////////////////////
 // C++ code generated with wxFormBuilder (version 4.2.1-0-g80c4cb6)
 // http://www.wxformbuilder.org/
 //
 // PLEASE DO *NOT* EDIT THIS FILE!
-// /////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
 
-#include "MyFrame4.h"
+#include "MainFrame.h"
 
-// /////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
 
-MyFrame4::MyFrame4( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
     this->SetSizeHints( wxSize( -1,-1 ), wxDefaultSize );
 
@@ -21,17 +21,8 @@ MyFrame4::MyFrame4( wxWindow* parent, wxWindowID id, const wxString& title, cons
     wxGridSizer* gSizer3;
     gSizer3 = new wxGridSizer( 0, 2, 0, 0 );
 
-    m_datePicker1 = new wxDatePickerCtrl( m_panel34, wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT );
-    gSizer3->Add( m_datePicker1, 0, wxALL, 5 );
-
-    m_timePicker1 = new wxTimePickerCtrl( m_panel34, wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxTP_DEFAULT );
-    gSizer3->Add( m_timePicker1, 0, wxALL, 5 );
-
-    m_calendar1 = new wxCalendarCtrl( m_panel34, wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxCAL_SHOW_HOLIDAYS );
-    gSizer3->Add( m_calendar1, 0, wxALL, 5 );
-
-    m_scrollBar1 = new wxScrollBar( m_panel34, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxSB_HORIZONTAL );
-    gSizer3->Add( m_scrollBar1, 0, wxALL, 5 );
+    m_toggleBtn1 = new wxToggleButton( m_panel34, wxID_ANY, _("退出"), wxDefaultPosition, wxDefaultSize, 0 );
+    gSizer3->Add( m_toggleBtn1, 0, wxALL, 5 );
 
 
     m_panel34->SetSizer( gSizer3 );
@@ -155,7 +146,7 @@ MyFrame4::MyFrame4( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_listbook14ListView->SetWindowStyleFlag( m_listbook14Flags );
 #endif
 
-    bSizer13->Add( m_listbook14, 1, wxALL|wxEXPAND, 3 );
+    bSizer13->Add( m_listbook14, 1, wxALL|wxEXPAND|wxTOP, 3 );
 
     m_auinotebook4 = new wxAuiNotebook( this, wxID_ANY, wxDefaultPosition, wxSize( -1,240 ), wxAUI_NB_DEFAULT_STYLE );
     m_auinotebook4->SetMinSize( wxSize( -1,200 ) );
@@ -192,8 +183,11 @@ MyFrame4::MyFrame4( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 
     this->Centre( wxBOTH );
+
+    // Connect Events
+    m_toggleBtn1->Connect( wxEVT_COMMAND_TOGGLEBUTTON_CLICKED, wxCommandEventHandler( MainFrame::exitFun ), NULL, this );
 }
 
-MyFrame4::~MyFrame4()
+MainFrame::~MainFrame()
 {
 }

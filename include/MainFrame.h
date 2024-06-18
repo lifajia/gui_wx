@@ -10,21 +10,17 @@
 #include <wx/artprov.h>
 #include <wx/xrc/xmlres.h>
 #include <wx/intl.h>
-#include <wx/datectrl.h>
-#include <wx/dateevt.h>
+#include <wx/tglbtn.h>
+#include <wx/string.h>
+#include <wx/bitmap.h>
+#include <wx/image.h>
+#include <wx/icon.h>
 #include <wx/gdicmn.h>
 #include <wx/font.h>
 #include <wx/colour.h>
 #include <wx/settings.h>
-#include <wx/string.h>
-#include <wx/timectrl.h>
-#include <wx/calctrl.h>
-#include <wx/scrolbar.h>
 #include <wx/sizer.h>
 #include <wx/panel.h>
-#include <wx/bitmap.h>
-#include <wx/image.h>
-#include <wx/icon.h>
 #include <wx/dataview.h>
 #include <wx/stattext.h>
 #include <wx/textctrl.h>
@@ -40,6 +36,9 @@
 #include <wx/gauge.h>
 #include <wx/srchctrl.h>
 #include <wx/clrpicker.h>
+#include <wx/timectrl.h>
+#include <wx/dateevt.h>
+#include <wx/datectrl.h>
 #include <wx/listbook.h>
 #include <wx/listctrl.h>
 #include <wx/scrolwin.h>
@@ -50,19 +49,16 @@
 ///////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class MyFrame4
+/// Class MainFrame
 ///////////////////////////////////////////////////////////////////////////////
-class MyFrame4 : public wxFrame
+class MainFrame : public wxFrame
 {
 private:
 
 protected:
     wxListbook* m_listbook14;
     wxPanel* m_panel34;
-    wxDatePickerCtrl* m_datePicker1;
-    wxTimePickerCtrl* m_timePicker1;
-    wxCalendarCtrl* m_calendar1;
-    wxScrollBar* m_scrollBar1;
+    wxToggleButton* m_toggleBtn1;
     wxPanel* m_panel35;
     wxDataViewListCtrl* m_dataViewListCtrl4;
     wxPanel* m_panel36;
@@ -98,11 +94,15 @@ protected:
     wxMenu* m_menu11;
     wxMenu* m_menu12;
 
+    // Virtual event handlers, override them in your derived class
+    virtual void exitFun( wxCommandEvent& event ) { event.Skip(); }
+
+
 public:
 
-    MyFrame4( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("数采工具"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 800,650 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+    MainFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("数采工具"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 800,650 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
-    ~MyFrame4();
+    ~MainFrame();
 
 };
 
