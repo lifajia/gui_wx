@@ -1,4 +1,4 @@
-///////////////////////////////////////////////////////////////////////////
+﻿///////////////////////////////////////////////////////////////////////////
 // C++ code generated with wxFormBuilder (version 4.2.1-0-g80c4cb6)
 // http://www.wxformbuilder.org/
 //
@@ -6,6 +6,7 @@
 ///////////////////////////////////////////////////////////////////////////
 
 #include "ExitDialog.h"
+#include "wx/tglbtn.h"
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -40,8 +41,19 @@ ExitDialog::ExitDialog( wxWindow* parent, wxWindowID id, const wxString& title, 
     this->Layout();
 
     this->Centre( wxBOTH );
+
+
+    m_sdbSizer1OK->Bind(wxEVT_BUTTON, &ExitDialog::exitFun, this);
+}
+
+
+void ExitDialog::exitFun(wxCommandEvent &event) {
+    Close(true);
+    event.Skip();
 }
 
 ExitDialog::~ExitDialog()
 {
 }
+
+

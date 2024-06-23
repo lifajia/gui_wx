@@ -45,6 +45,8 @@
 #include <wx/aui/auibook.h>
 #include <wx/menu.h>
 #include <wx/frame.h>
+#include "MyTray.h"
+#include "wx/taskbar.h"
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -54,11 +56,15 @@
 class MainFrame : public wxFrame
 {
 private:
+    // 1隐藏托盘 2关闭程序
+    int appWindowStatus = 1;
 
 protected:
+
     wxListbook* m_listbook14;
     wxPanel* m_panel34;
     wxToggleButton* m_toggleBtn1;
+    wxToggleButton* m_toggleBtn2;
     wxPanel* m_panel35;
     wxDataViewListCtrl* m_dataViewListCtrl4;
     wxPanel* m_panel36;
@@ -94,15 +100,30 @@ protected:
     wxMenu* m_menu11;
     wxMenu* m_menu12;
 
-    // Virtual event handlers, override them in your derived class
-    virtual void exitFun( wxCommandEvent& event ) { event.Skip(); }
+
+//    wxTaskBarIcon *taskBarIcon;
+    MyTray *taskBarIcon;
+
+
+
 
 
 public:
+
+    void exitFun( wxCommandEvent& event ) ;
+    void resetFun( wxCommandEvent& event ) ;
+    void OnAbout(wxCommandEvent &event);
+
+//    void hideWindow(wxCloseEvent &event,std::string *caller= nullptr);
+    void hideWindow(wxCloseEvent &event);
+    void showWindow(wxTaskBarIconEvent &event);
+
+
 
     MainFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("数采工具"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 800,650 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
     ~MainFrame();
 
+    void tttttt(wxTaskBarIconEvent &event);
 };
 

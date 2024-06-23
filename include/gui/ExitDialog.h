@@ -35,6 +35,8 @@ protected:
     wxButton* m_sdbSizer1OK;
     wxButton* m_sdbSizer1Cancel;
 
+    void exitFun( wxCommandEvent& event ) ;
+
 public:
 
     ExitDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 300,-1 ), long style = wxDEFAULT_DIALOG_STYLE );
